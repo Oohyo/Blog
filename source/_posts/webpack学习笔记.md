@@ -1,5 +1,6 @@
 ---
 title: 'WebPack学习笔记'
+comments: true
 date: 2017-06-15 16:50:00
 tags: [WebPack,js ]
 categories: WebPack

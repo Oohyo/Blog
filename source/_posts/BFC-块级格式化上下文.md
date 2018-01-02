@@ -1,5 +1,6 @@
 ---
 title: 'BFC'
+comments: true
 date: 2017-08-01 13:00:00
 tags: [css,布局]
 categories: 学习笔记
