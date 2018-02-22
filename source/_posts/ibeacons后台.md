@@ -10,11 +10,11 @@ categories: 工作笔记
 
 **效果图:** 
 
-![pic](https://tu-img-1.aixinxi.net/o_1bvmkgrdh14ls1uuqkmr1n08udja.png-w.jpg) 
+![pic](https://t1.aixinxi.net/o_1bvmkgrdh14ls1uuqkmr1n08udja.png-w.jpg) 
 
 <!-- more -->
 
-![pic](https://tu-img-1.aixinxi.net/o_1bvmkgedh17apcrp22m5og1ejba.png-w.jpg) 
+![pic](https://t1.aixinxi.net/o_1bvmkgedh17apcrp22m5og1ejba.png-w.jpg) 
 
 ![pic](https://t1.aixinxi.net/o_1bvmka53i1to3g4gonbnbmh1aa.png-w.jpg)
 
