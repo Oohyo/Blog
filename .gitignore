@@ -60,3 +60,9 @@ npm-debug.log
 
 .*-cache
 .project
+.DS_Store
+Thumbs.db
+db.json
+*.log
+public/
+.deploy*/
