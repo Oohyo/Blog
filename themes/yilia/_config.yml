@@ -11,8 +11,8 @@ subnav:
   weibo: "http://weibo.com/3871427713/profile?topnav=1&wvr=6"
   mail: "er_567@foxmail.com"
   qq: "tencent://message/?Menu=yes&amp;uin=839153198&amp;Service=0"
-  #zhihu: "https://www.zhihu.com/people/666_666/activities"
-  #rss: "#"
+  zhihu: "https://www.zhihu.com/people/666_666/activities"
+  #rss: "/atom.xml"
   #weixin: "#"
   #jianshu: "#"
   #douban: "#"
@@ -21,7 +21,7 @@ subnav:
   #twitter: "#"
   #linkedin: "#"
 
-rss: /atom.xml
+#rss: /atom.xml
 
 # 是否需要修改 root 路径
 # 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，
