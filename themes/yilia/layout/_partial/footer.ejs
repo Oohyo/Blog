@@ -59,18 +59,19 @@
               for (var name in data) {
                 arr.push(encodeURIComponent(name) + "=" + encodeURIComponent(data[name]));
               }
-              arr.push(("v=" + Math.random()).replace("."));
+              // arr.push(("v=" + Math.random()).replace("."));
               return arr.join("&");
             }
             var yyDom = document.getElementsByClassName('header-subtitle')[0];
             var yiYan = function(){
               ajax({
-                url: "https://sslapi.hitokoto.cn/", //请求地址
+                url: "https://v1.hitokoto.cn/", //请求地址
                 type: "GET", //请求方式
-                data: {}, //请求参数
+                data: {//请求参数
+                  // param: 'uselessParam'
+                }, 
                 success: function (res) {
                   res = JSON.parse(res);
-                  console.log(res)
                   yyDom.innerHTML = res.hitokoto +'(from:'+res.from+')';
                 },
                 fail: function (status) {
