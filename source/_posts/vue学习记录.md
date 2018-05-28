@@ -1,66 +1,64 @@
 ---
-title: 'vue学习记录'
+title: '一个简易多栏tab组件,以及npm发布'
 comments: true
-date: 2018-02-15 12:13:14
-tags: [vue,js,Mint Ui]
+date: 2018-05-01 00:00:00
+tags: [vue,js,npm]
 categories: 学习笔记
 ---
+## 介绍
 
-没有先后顺序，想到什么就写什么吧。
+之前h5移动端项目有一个顶部tab栏的组件,那个是基于jq的各种操作dom,现在项目用vue重构,所以便想用vue重构下这个组件.
 
-#### npm start的时候正常有样式但npm run build之后没有样式
+## 思路
 
-> 原因：样式被覆盖了
-> 解决：main.js里将router在引入ui组件之前引入或者组件样式加scoped
-> 注意组件嵌套的层级合理布局，最好每个分组组件的样式都独立，公用样式抽离
+1. 先理清需求,把需要自定义配置的参数列出来(tab栏数量,tab栏文字,active颜色,tab栏点击事件..)
+2. 在App.vue里将需要的参数传入组件,在组件内用数据渲染成需要的结构
+3. 最后再完善样式 
+<!-- more -->
+## 使用
 
-#### 跳转同一路由不同参数，页面不会刷新
+- 安装
+```bash
+npm install mm-vue-tab 
+```
 
-> 原因：组件复用，没有重新加载组件
-> 解决：监听路由的变化执行数据变化的时候请求数据的方法，页面初始化的时候也调用一次
-
+- 引用
 ```javascript
-mounted() {
-    this.author = this.$store.state.demo.author;
-    this.getTheme(`/${this.$route.params.id}`);
-},
-methods: {
-    getTheme(id) {
-        this.$ajax.get(url + id).then(res => {
-            //传参或者拼接url 视接口而定
-        });
+import Vue from 'vue'
+import Tab from 'mm-vue-tab'
+Vue.use(Tab); 
+```
+
+- 使用demo
+```html
+<mm-vue-tab :options="option">
+    <div slot="bd-1">...</div>
+    <div slot="bd-2">...</div>
+</mm-vue-tab>
+```
+```javascript
+option:{
+    name: ['导航一','导航二'],   //导航名称
+    lineColor: '',              //默认 #f95d5b
+    slotName: ['bd-0','bd-1'],  //插槽名称
+    tabClick:function(){        //触发导航
+        console.log('click tab')
     }
-},
-beforeRouteUpdate(to, from, next) {
-    this.getTheme(`/${to.params.id}`);
-    next();
-}
+} 
 ```
-<!--more-->
-#### 组件通信
 
-**1. prop**
-添加[sync修饰符](https://cn.vuejs.org/v2/guide/components.html#sync-修饰符)，可以实现子组件修改父组件的值，形成‘双向绑定’
-注意：vue版本需2.3.0及以上
-```javascript
-//父组件 引用sidebar，将showSidebar传给子组件
-<sidebar :showSidebar.sync="showSidebar"></sidebar>
-//子组件 将改变后的sidebarShow传给父组件
-this.$emit("update:showSidebar", this.sidebarShow);
-```
-**2. $on监听$emit触发**
-```javascript
-vm.$on('test', function (msg) {
-  console.log(msg)
-})
-vm.$emit('test', 'hi')
-// => "hi"
-```
-**3. var bus = new Vue()**
-将事件的绑定和监听都在bus上进行，组件之间可以随意通信。
-#### 自定义指令directives（钩子函数及参数）详见官网
- 
-[钩子函数](https://cn.vuejs.org/v2/guide/custom-directive.html#钩子函数)：bind/inserted/updata/componentUpdated/unbind
+## 踩坑
 
-[钩子函数参数](https://cn.vuejs.org/v2/guide/custom-directive.html#钩子函数参数)：el/binding(传参对象)/vnode/oldVnode
+1. 关于npm发布,需要先将项目打包到lib,并且配置好package.json
 
+    "private": false, //设置为开源
+    "main": "lib/index.js" //打包路径
+
+2. 如果你切换过npm源,发布的时候需要在npm login前切换回来.
+
+3. 在你决定正式发布之前应该在本地写demo测试几遍
+
+## 附录
+
+[Demo](http://ofj8a2i7u.bkt.clouddn.com/image/demo.gif)
+[源码](https://github.com/er567/mm-vue-tab)
