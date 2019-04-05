@@ -116,8 +116,8 @@
         var data = res.list[j].arr;
         var liTmpl = "";
         for (var i = 0, len = data.link.length; i < len; i++) {
-          var minSrc = '//jingye.me/blogPhoto/min_photos/' + data.link[i] + '.min.jpg';
-          var src = '//jingye.me/blogPhoto/photos/' + data.link[i];
+          var minSrc = '//oohyo.github.io/blogPhoto/min_photos/' + data.link[i] + '.min.jpg';
+          var src = '//oohyo.github.io/blogPhoto/photos/' + data.link[i];
           var type = data.type[i];
           var target = src + (type === 'video' ? '.mp4' : '.jpg');
           src += '.jpg';
