@@ -56,7 +56,7 @@ weixin: /img/weichat.png
 # Miscellaneous
 baidu_analytics: ''
 google_analytics: ''
-favicon: /favicon.png
+favicon: /favicon.ico
 
 #你的头像url
 avatar: https://avatars1.githubusercontent.com/u/20676204?s=460&v=4
